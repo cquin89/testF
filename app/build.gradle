@@ -1,0 +1,82 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+apply plugin: "kotlin-kapt"
+
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.losingtimeapps.fababellatest"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "API_URL",'"https://www.mindicador.cl/api/"'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.core:core-ktx:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //// navigation component
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    //// retrofit
+    implementation "com.squareup.retrofit2:retrofit:${retrofit2}"
+    implementation "com.squareup.retrofit2:converter-gson:${retrofit2}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${retrofit2}"
+
+    //// rxJava
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'io.reactivex.rxjava2:rxjava:2.2.9'
+
+    //// mockito
+    implementation "org.mockito:mockito-core:${mockito}"
+    testImplementation 'com.jraska.livedata:testing-ktx:1.1.0'
+    //// Room
+    testImplementation "androidx.room:room-testing:$room_version"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    // RxJava support for Room
+    implementation 'androidx.room:room-rxjava2:2.1.0-rc01'
+// Testing support
+    androidTestImplementation "android.arch.core:core-testing:1.1.1"
+
+    //dagger
+    annotationProcessor "com.google.dagger:dagger-compiler:${dagger2}"
+    implementation "com.google.dagger:dagger:${dagger2}"
+    compileOnly "org.glassfish:javax.annotation:${javaxAnnotation}"
+    implementation "com.google.dagger:dagger-android-support:${dagger2}"
+    kapt "com.google.dagger:dagger-compiler:${dagger2}"
+    kapt "com.google.dagger:dagger-android-processor:${dagger2}"
+
+
+    testImplementation "android.arch.core:core-testing:1.1.1"
+}
