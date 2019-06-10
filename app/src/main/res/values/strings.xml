@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">FababellaTest</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="log_out">Log Out</string>
+    <string name="code">Code:</string>
+    <string name="value">Value:</string>
+    <string name="invalid_data">Incorrect data, please try again</string>
+    <string name="unexpected_error">Unexpected Error</string>
+    <string name="network_connection_error">Network Connection Error</string>
+    <string name="empty_user_name_error">The username can not be empty</string>
+    <string name="empty_password_error">The password can not be empty</string>
+    <string name="login">login</string>
+    <string name="password">Password</string>
+    <string name="username">UserName</string>
+    <string name="register">Register</string>
+    <string name="register_success">Register Success</string>
+</resources>

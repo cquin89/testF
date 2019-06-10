@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/navigation_graph"
+            app:startDestination="@id/splashFragment">
+    <fragment android:id="@+id/loginFragment2"
+              android:name="com.losingtimeapps.fababellatest.presentation.ui.login.LoginFragment"
+              android:label="fragment_login" tools:layout="@layout/fragment_login">
+        <action android:id="@+id/loginToIndicators"
+                app:destination="@+id/indicatorsFragment"
+                app:popUpTo="@+id/loginFragment2"
+                app:popUpToInclusive="true"
+        />
+    </fragment>
+    <fragment android:id="@+id/indicatorsFragment"
+              android:name="com.losingtimeapps.fababellatest.presentation.ui.indicators.IndicatorsFragment"
+              android:label="fragment_indicators" tools:layout="@layout/fragment_indicators">
+        <argument android:name="userName" app:argType="string" android:defaultValue="No Named Added"/>
+        <action android:id="@+id/indicatorsToIndicatorDescription"
+                app:destination="@id/indicatorDescriptionFragment"/>
+        <action android:id="@+id/indicatorToLogin"
+                app:destination="@id/loginFragment2"
+                app:popUpTo="@+id/indicatorsFragment"
+                app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment android:id="@+id/indicatorDescriptionFragment"
+              android:name="com.losingtimeapps.fababellatest.presentation.ui.indicatordescription.IndicatorDescriptionFragment"
+              android:label="fragment_indicator_description" tools:layout="@layout/fragment_indicator_description">
+        <argument android:name="indicatorData"
+                  app:argType="com.losingtimeapps.fababellatest.presentation.model.IndicatorModel"/>
+    </fragment>
+    <fragment android:id="@+id/splashFragment"
+              android:name="com.losingtimeapps.fababellatest.presentation.ui.splash.SplashFragment"
+              android:label="fragment_splash" tools:layout="@layout/fragment_splash">
+        <action android:id="@+id/splashToLogin"
+                app:destination="@id/loginFragment2"
+                app:popUpTo="@+id/splashFragment"
+                app:popUpToInclusive="true"
+        />
+        <action android:id="@+id/splashToIndicator"
+                app:popUpTo="@+id/splashFragment"
+                app:popUpToInclusive="true"
+                app:destination="@id/indicatorsFragment"/>
+    </fragment>
+</navigation>
